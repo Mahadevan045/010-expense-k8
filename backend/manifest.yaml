@@ -1,3 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend
+data:
+  DB_HOST: "mysql" 
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -24,6 +31,9 @@ spec:
       containers:
       - name: backend
         image: mahadevan045/backend:v1
+        envFrom:
+        - configMapRef:
+            name: backend # name of the config-map
 ---
 apiVersion: v1
 kind: Service 

@@ -1,0 +1,10 @@
+apiVersion: v1 
+kind: Pod # pod ==container in docker
+metadata: 
+  name: debug
+  namespace: expense
+spec:
+  containers:
+  # docker run -d  --name nginx nginx
+  - name: debug 
+    image: mahadevan045/mysql:v1 

@@ -31,6 +31,13 @@ spec:
       containers:
       - name: backend
         image: mahadevan045/backend:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits: #limits is greater than or equal to requests
+            cpu: 100m
+            memory: 128Mi
         envFrom:
         - configMapRef:
             name: backend # name of the config-map
